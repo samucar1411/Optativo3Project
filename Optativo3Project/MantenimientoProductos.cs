@@ -48,7 +48,7 @@ namespace Optativo3Project
         {
             try
             {
-                string cmd = string.Format("EXEC EliminarProductos '{0}'", txtIdPro.Text.Trim());
+                string cmd = string.Format("EXEC EliminarProductos {0}", txtIdPro.Text.Trim());
                 SqlConnection conn = new SqlConnection("Data Source=.;Initial Catalog=Administracion;Integrated Security=True");
 
                 conn.Open();

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,5 +17,46 @@ namespace Optativo3Project
         {
             InitializeComponent();
         }
+
+
+        public DataSet LlenarData(string tabla)
+        {
+            DataSet DS;
+
+            string cmd = string.Format("SELECT * FROM " + tabla);
+            DS = DBConn(cmd);
+
+            return DS;
+
+
+        }
+
+        public static DataSet DBConn(string cmd)
+        {
+            SqlConnection conn = new SqlConnection("Data Source=.;Initial Catalog=Administracion;Integrated Security=True");
+            conn.Open();
+            SqlDataAdapter adapt = new SqlDataAdapter(cmd, conn);
+
+            DataSet ds = new DataSet();
+
+            adapt.Fill(ds);
+
+            conn.Close();
+            return ds;
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if( dataGridView1.Rows.Count == 0 )
+            {
+                return;
+            } else
+            {
+                DialogResult = DialogResult.OK;
+                Close();
+            }
+        }
     }
+
 }

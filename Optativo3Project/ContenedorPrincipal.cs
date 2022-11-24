@@ -119,5 +119,27 @@ namespace Optativo3Project
             manPro.MdiParent = this;
             manPro.Show();
         }
+
+        private void clienteToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ConsultarClientes conCli = new ConsultarClientes();
+
+            conCli.MdiParent = this;
+            conCli.Show();
+        }
+
+        private void productosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ConsultarProductos conPro = new ConsultarProductos();   
+            conPro.MdiParent = this;
+            conPro.Show();
+        }
+
+        private void facturacionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Facturacion fact = new Facturacion();
+            fact.MdiParent = this;
+            fact.Show();
+        }
     }
 }
